@@ -23,3 +23,9 @@
 
     参考： [Vue双向绑定原理](https://juejin.cn/post/6844904040791277575)
 
+## 如何自己实现一个简单的 vue（2.0版本）
+
+> 参考 [vue 的双向绑定原理及实现](https://juejin.cn/post/6844903479044112391)
+> TODO: 补全 MyVue 文件夹中 `Observer.js` 和 `Watcher.js` 中标明 TODO 的方法
+> 可以直接在浏览器中打开 MyVue 文件夹中 `index.html` 文件进行调试
+>
