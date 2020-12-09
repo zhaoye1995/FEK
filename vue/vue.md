@@ -25,7 +25,11 @@
 
 ## 如何自己实现一个简单的 vue（2.0版本）
 
-> 参考 [vue 的双向绑定原理及实现](https://juejin.cn/post/6844903479044112391)
-> TODO: 补全 MyVue 文件夹中 `Observer.js` 和 `Watcher.js` 中标明 TODO 的方法
-> 可以直接在浏览器中打开 MyVue 文件夹中 `index.html` 文件进行调试
 >
+> TODO: 我们已经实现了用 1 个 `watcher` 监听函数某个属性变化的功能，现在请实现多个 `watcher` 监听函数某个属性变化的功能。  
+>
+> 提示: 可以实现一个 `Depth` 类，收集注册的 `watcher`, 并在 `setter` 被触发时，遍历所有的 `watcher` 并调用其回调。
+>
+> 调试方法： 可以直接在浏览器中打开 MyVue 文件夹中 `index.html` 文件进行调试
+>
+> 参考 [vue 的双向绑定原理及实现](https://juejin.cn/post/6844903479044112391)
