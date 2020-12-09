@@ -37,5 +37,11 @@ function defineReactive(data, key, val) {
  * @param {object} data 
  */
 function observe(data) {
-    
+    if(data && typeof data === 'object') {
+        Object.keys(data).forEach((key) => {
+            defineReactive(data, key, data[key])
+            observe(data[key])
+        })
+    }
+    return
 }
