@@ -21,9 +21,9 @@ class Watcher {
      * 同时执行 cb 函数, cb 函数的参数是 observableTarget 的 key 属性值
      */
     update() {
-        let updateKey = this.observableTarget[this.key]
-        console.log(updateKey)
-        this.cb(updateKey)
+        const value = this.observableTarget[this.key]
+        console.log(value)
+        this.cb(value)
     }
 
 }
