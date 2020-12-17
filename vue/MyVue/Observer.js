@@ -8,13 +8,13 @@
  * @param {*} val 
  */
 function defineReactive(data, key, val) {
-    let watcher
+    let dep = new Depth()
     Object.defineProperty(data, key, {
         enumerable: true,
         configurable: true,
         get: function() {
-            if (currentWatcher) {
-                watcher = currentWatcher
+            if(currentWatcher){
+                dep.addSubs(currentWatcher)
             }
             return val
         },
@@ -23,13 +23,12 @@ function defineReactive(data, key, val) {
                 return
             }
             val = newVal
-            watcher.update()
+            dep.notify()
         }
     });
 }
 
 /**
- * TODO：可以借助 defineReactive 函数实现
  * 
  * 将一个 js 对象转换成 observerable 对象
  * observerable 对象是所有的属性都是 observerable 属性的对象
