@@ -13,17 +13,24 @@ class Watcher {
         this.cb = cb
         this.key = key
         this.observableTarget = observableTarget
+        // 把自己注册到 Depth 中
+        this.registerSelf()
     }
 
     /**
-     * TODO: 实现 update 函数
-     * 调用 update 函数的时候，会打印 observableTarget 的 key 属性，
-     * 同时执行 cb 函数, cb 函数的参数是 observableTarget 的 key 属性值
+     * 调用 update 函数的时，执行 cb 函数,
+     * cb 函数的参数是 observableTarget 的 key 属性值
      */
     update() {
         const value = this.observableTarget[this.key]
-        console.log(value)
         this.cb(value)
+    }
+
+    /**
+     * TODO
+     * 将 index.html 中原来的注册逻辑移到这里，借助 this 来实现。
+     */
+    registerSelf() {
     }
 
 }

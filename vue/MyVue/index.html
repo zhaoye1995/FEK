@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>小叶真棒！！</title>
     <script src="./Observer.js"></script>
     <script src="./Watcher.js"></script>
     <script src="./Depth.js"></script>
@@ -32,32 +32,21 @@
             
         })
 
+        // 3. 通过强制触发 getter 函数来注册 watcher
         currentWatcher = watcher
 
-        // 3. 强制触发一次 getter 函数
-        console.log(girl.name)
-
-        currentWatcher = null
-
-        // 2. 创建一个 watcher
-        const watcher1 = new Watcher(girl, 'name', val => {
-            if (val === '小叶小叶') {                
-                console.log(decodeURIComponent(str))
-            } else {
-                console.log(`log in callback: ${val}`)
-            }
-            
-        })
-
-        currentWatcher = watcher1
-
-        // 3. 强制触发一次 getter 函数
         console.log(girl.name)
 
         currentWatcher = null
 
         // 4. 触发一次 setter 函数
-        girl.name = '小叶小叶rrr'
+        girl.name = '小叶小叶'
+
+        /**
+         * TODO: 
+         * 1. currentWatcher 作为全局变量，应当归纳到一个统一的地方，新建一个 global.js 文件，将 currentWatcher 放在里面
+         * 2. 将上面 步骤3 注册 watcher 的逻辑移到 Watcher 类中。
+         * */
     </script>
 
     <h1>
