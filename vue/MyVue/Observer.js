@@ -17,9 +17,6 @@ function defineReactive(data, key, val) {
             if(currentWatcher){
                 dep.addSubs(currentWatcher)
             }
-            // if (currentWatcher) {
-            //     watcher = currentWatcher
-            // }
             return val
         },
         set: function(newVal) {
@@ -28,7 +25,6 @@ function defineReactive(data, key, val) {
             }
             val = newVal
             dep.notify()
-            //watcher.update()
         }
     });
 }
