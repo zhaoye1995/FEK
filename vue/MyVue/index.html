@@ -3,54 +3,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小叶真棒！！</title>
+    <script src="./global.js"></script>
     <script src="./Observer.js"></script>
     <script src="./Watcher.js"></script>
     <script src="./Depth.js"></script>
+    <script src="./Vue.js"></script>
 </head>
 
 <body>
+    <h1 id='app'>
+        {{ value }}
+    </h1>
+
     <script>
-        // 全局变量， 当前的 watcher
-        let currentWatcher = null
-        // 全局变量，不用管
-        const str = '%E5%A5%BD%E5%A5%BD%E5%86%99%E4%BD%9C%E4%B8%9A'
-
         const girl = {
-            name: 'somebody'
+            value: 'good day'
         }
-
-        // 1. 创建一个 observerable 对象
-        observe(girl)
-
-        // 2. 创建一个 watcher
-        const watcher = new Watcher(girl, 'name', val => {
-            if (val === '小叶小叶') {                
-                console.log(decodeURIComponent(str))
-            } else {
-                console.log(`log in callback: ${val}`)
-            }
-            
+        const app = new Vue({
+            rootSelector: '#app',
+            data: girl,
+            key: 'value',
         })
 
-        // 3. 通过强制触发 getter 函数来注册 watcher
-        currentWatcher = watcher
+        setTimeout(() => {
+            app.data.value = '263682191627426235672149420102'
+        }, 800)
 
-        console.log(girl.name)
-
-        currentWatcher = null
-
-        // 4. 触发一次 setter 函数
-        girl.name = '小叶小叶'
-
-        /**
-         * TODO: 
-         * 1. currentWatcher 作为全局变量，应当归纳到一个统一的地方，新建一个 global.js 文件，将 currentWatcher 放在里面
-         * 2. 将上面 步骤3 注册 watcher 的逻辑移到 Watcher 类中。
-         * */
     </script>
-
-    <h1>
-        打开 devtools 进行调试
-    </h1>
 </body>
 </html>
