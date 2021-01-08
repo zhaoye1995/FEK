@@ -20,7 +20,9 @@ class Vue {
          * 将 data 和 html 模板连接起来
          */
         observe(this.data)
-        const watch = new Watcher(this.data, this.key, this.update())
+        const watch = new Watcher(this.data, this.key, val => {
+            this.update(val)
+        })
         return this
     }
 
